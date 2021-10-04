@@ -145,3 +145,38 @@ clock.place(x=0, y=0)
 weekday = Label(root, font=("Big Caslon", 15, ' bold'), borderwidth=2, bg='tomato', anchor='w')
 weekday.place(x=250, y=45)
 tick()
+#################################################### CONNECT TO DATABASE ##################################
+
+ConnectButton = Button(root, text='Connect to \nDatabase', width=13,  font=("Big Caslon", 15, ' bold'), borderwidth=4,
+                       bg='green yellow', relief=GROOVE, activebackground='gold',
+                       activeforeground='white', command=connectdb)
+ConnectButton.place(x=1000, y=0)
+
+#################################################### CONNECT TO DATABASE ##################################
+
+ConnectButton = Button(root, text='Connect to \nDatabase', width=13,  font=("Big Caslon", 15, ' bold'), borderwidth=4,
+                       bg='green yellow', relief=GROOVE, activebackground='gold',
+                       activeforeground='white', command=connectdb)
+ConnectButton.place(x=1000, y=0)
+
+################################################### INTRO SLIDER
+colors = ['black', 'orange', 'orchid1', 'DarkSlateGray2', 'cadet blue']
+def IntroLabelColorTick():
+    fg = random.choice(colors)
+    #print(fg)
+    SliderLabel.config(fg=fg)
+    SliderLabel.after(2, IntroLabelColorTick)
+
+
+def IntroLabelTick():
+    global count, text
+    if(count>=len(ss)):
+        count = -1
+        text = ''
+        SliderLabel.config(text=text)
+    else:
+        text = text + ss[count]
+        SliderLabel.config(text=text)
+    count += 1
+    SliderLabel.after(100, IntroLabelTick)
+
